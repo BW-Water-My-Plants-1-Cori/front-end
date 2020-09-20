@@ -1,11 +1,14 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
+// Components
 import Home from "./components/Home";
 import Plants from "./components/Plants";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import { connect } from "react-redux";
+import { requestLogin } from "./actions";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <nav>
@@ -25,7 +28,10 @@ function App() {
       <div className="content">
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home
+              isFetching={props.isFetching}
+              requestLogin={props.requestLogin}
+            />
           </Route>
           <Route path="/login">
             <Login />
@@ -42,5 +48,13 @@ function App() {
     </div>
   );
 }
+function mapStateToProps(state) {
+  return {
+    loadedPlant: state.loadedPlant,
+    plants: state.plants,
+    error: state.error,
+    isFetching: state.isFetching,
+  };
+}
 
-export default App;
+export default connect(mapStateToProps, { requestLogin })(App);

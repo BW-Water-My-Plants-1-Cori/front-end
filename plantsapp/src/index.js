@@ -2,17 +2,28 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+// Router
 import { BrowserRouter as Router } from "react-router-dom";
+// Redux
+import { applyMiddleware, createStore } from "redux";
+import { Provider } from "react-redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import { reducer } from "./reducers/";
 // Styles
 import "./styles/reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/index.css";
 
+const store = createStore(reducer, applyMiddleware(thunk, logger));
+
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

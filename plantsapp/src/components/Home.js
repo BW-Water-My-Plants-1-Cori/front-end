@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import { axiosWithAuth } from "./utils/axiosWithAuth";
-const Home = (props) => {
+import { Spinner } from "reactstrap";
+
+const Home = ({ isFetching, requestLogin }) => {
   // Code
-  const user = {
+
+  const userRegister = {
     username: "donavyn",
     phonenumber: "(123)456-7891",
     email: "donavynhaley@gmail.com",
@@ -17,12 +19,11 @@ const Home = (props) => {
     password: "hunter1",
   };
   useEffect(() => {
-    axiosWithAuth()
-      .post("/login", userLogin)
-      .then((res) => {
-        console.log(res);
-      });
-  });
+    requestLogin(userLogin);
+  }, []);
+  if (isFetching) {
+    return <Spinner type="grow" color="success" />;
+  }
   return <div>Home</div>;
 };
 
