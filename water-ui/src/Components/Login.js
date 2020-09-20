@@ -14,11 +14,11 @@ export default class Login extends Component {
         <h3>Welcome Back!</h3>
 
         <div className="form-group">
-          <label>Email address</label>
+          <label>Username</label>
           <input
-            type="email"
+            type="username"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="Enter username"
           />
         </div>
 
