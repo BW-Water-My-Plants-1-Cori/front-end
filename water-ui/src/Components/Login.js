@@ -1,5 +1,4 @@
 import React, { useState, Component } from "react";
-import { Link } from 'react-router';
 import styled from 'styled-components'
 
 const StyledDiv = styled.button`

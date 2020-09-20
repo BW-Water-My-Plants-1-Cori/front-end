@@ -4,7 +4,6 @@ import "./styles.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./Components/Login.js";
 import SignUp from "./Components/Signup.js";
-import styled from 'styled-components'
 
 function App() {
   return (
