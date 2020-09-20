@@ -1,5 +1,10 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import Plants from "./components/Plants";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+
 function App() {
   return (
     <div className="App">
@@ -17,14 +22,23 @@ function App() {
           </li>
         </ul>
       </nav>
-
-      <Switch>
-        <Route path="/"></Route>
-        <Route path="/login"></Route>
-        <Route path="/signup"></Route>
-        <Route path="/plants"></Route>
-        <Route path="/plants/:id"></Route>
-      </Switch>
+      <div className="content">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/plants">
+            <Plants />
+          </Route>
+          <Route path="/plants/:id"></Route>
+        </Switch>
+      </div>
     </div>
   );
 }

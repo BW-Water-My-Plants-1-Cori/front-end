@@ -1,7 +1,11 @@
+body {
+  background-color: lightblue;
+}
 nav {
   display: flex;
   justify-content: space-around;
-  margin: 1rem;
+  padding: 1rem;
+  background-color: white;
 }
 ul {
   display: flex;
@@ -12,4 +16,9 @@ ul li {
 ul li a {
   color: gray;
   font-size: 1.1rem;
+}
+.content {
+  margin: auto;
+  width: 80%;
+  color: black;
 }
