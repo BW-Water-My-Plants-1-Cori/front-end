@@ -1,11 +1,30 @@
 import React, { useState, Component } from "react";
 import styled from 'styled-components'
+//import Axios from 'axios'
 
 const StyledDiv = styled.button`
       color: ${(pr) => pr.theme.blue};
       border-radius: 5px;
       justify-content: center;
 `
+
+/*axios
+      .post('https://waterplantsunit4.herokuapp.com/register')
+      .then(res => {
+        console.log("Form -> res", res.data)
+        setPost([...post, res.data])
+        setFormState({
+          first name: '',
+          last name: '',
+          email address: '',
+          password: ''
+        })
+        setServerError(null)
+      })
+      .catch(err => {
+        setServerError("There is an error!")
+      }) */
+
 
 export default class SignUp extends Component {
   render() {
