@@ -3,6 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 // Components
 import Home from "./components/Home";
 import Plants from "./components/Plants";
+import PlantCard from "./components/PlantCard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { connect } from "react-redux";
@@ -28,10 +29,7 @@ function App(props) {
       <div className="content">
         <Switch>
           <Route exact path="/">
-            <Home
-              isFetching={props.isFetching}
-              requestLogin={props.requestLogin}
-            />
+            <Plants plants={props.plants} />
           </Route>
           <Route path="/login">
             <Login />

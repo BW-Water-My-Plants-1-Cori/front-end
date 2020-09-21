@@ -1,0 +1,12 @@
+.plant-container {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 1rem;
+}
+
+.card {
+  max-width: 500px;
+}
+.plant-card {
+  margin: 0.5rem;
+}

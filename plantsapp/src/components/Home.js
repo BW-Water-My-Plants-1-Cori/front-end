@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { Spinner } from "reactstrap";
 
 const Home = ({ isFetching, requestLogin }) => {
-  // Code
-
+  // Temporary login request until login/signup page is created
   const userRegister = {
     username: "donavyn",
     phonenumber: "(123)456-7891",
@@ -14,13 +13,17 @@ const Home = ({ isFetching, requestLogin }) => {
     experience: "some",
     level: "1",
   };
+
   const userLogin = {
     username: "donavyn",
     password: "hunter1",
   };
+
   useEffect(() => {
     requestLogin(userLogin);
   }, []);
+
+  // Will update user if fetching data from backend
   if (isFetching) {
     return <Spinner type="grow" color="success" />;
   }
