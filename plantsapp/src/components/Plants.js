@@ -3,8 +3,8 @@ import PlantCard from "./PlantCard";
 const Plants = ({ plants }) => {
   return (
     <div className="plant-container">
-      {plants.map((plant) => {
-        return <PlantCard plant={plant} />;
+      {plants.map((plant, index) => {
+        return <PlantCard key={index} plant={plant} />;
       })}
     </div>
   );

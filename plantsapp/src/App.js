@@ -6,8 +6,10 @@ import Plants from "./components/Plants";
 import PlantCard from "./components/PlantCard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+// Redux
 import { connect } from "react-redux";
 import { requestLogin } from "./actions";
+import { requestSignup } from "./actions";
 
 function App(props) {
   return (
@@ -32,10 +34,16 @@ function App(props) {
             <Plants plants={props.plants} />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login
+              requestLogin={props.requestLogin}
+              isFetching={props.isFetching}
+            />
           </Route>
           <Route path="/signup">
-            <Signup />
+            <Signup
+              requestSignup={props.requestSignup}
+              isFetching={props.isFetching}
+            />
           </Route>
           <Route path="/plants">
             <Plants />
@@ -55,4 +63,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { requestLogin })(App);
+export default connect(mapStateToProps, { requestLogin, requestSignup })(App);

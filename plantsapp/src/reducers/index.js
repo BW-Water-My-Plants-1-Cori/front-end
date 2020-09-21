@@ -2,6 +2,8 @@ import {
   IS_FETCHING,
   POST_LOGIN_SUCCESS,
   POST_LOGIN_FAILURE,
+  POST_SIGNUP_SUCCESS,
+  POST_SIGNUP_FAILURE,
 } from "../actions";
 
 export const initialState = {
@@ -46,7 +48,6 @@ export const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log("reducer", action);
   switch (action.type) {
     case IS_FETCHING:
       return {
@@ -54,6 +55,7 @@ export const reducer = (state = initialState, action) => {
         error: "",
         isFetching: true,
       };
+    case POST_SIGNUP_SUCCESS:
     case POST_LOGIN_SUCCESS:
       console.log(action.payload);
       return {
@@ -61,6 +63,7 @@ export const reducer = (state = initialState, action) => {
         error: "",
         isFetching: false,
       };
+    case POST_SIGNUP_FAILURE:
     case POST_LOGIN_FAILURE:
       return {
         ...state,
