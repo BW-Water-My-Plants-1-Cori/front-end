@@ -4,6 +4,8 @@ import {
   POST_LOGIN_FAILURE,
   POST_SIGNUP_SUCCESS,
   POST_SIGNUP_FAILURE,
+  POST_PLANT_SUCCESS,
+  POST_PLANT_FAILURE,
 } from "../actions";
 
 export const initialState = {
