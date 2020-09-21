@@ -6,6 +6,10 @@ import {
   POST_SIGNUP_FAILURE,
   POST_PLANT_SUCCESS,
   POST_PLANT_FAILURE,
+  FETCH_PLANTID_SUCCESS,
+  FETCH_PLANTID_FAILURE,
+  FETCH_USERID_SUCCESS,
+  FETCH_USERID_FAILURE,
 } from "../actions";
 
 export const initialState = {
@@ -46,27 +50,55 @@ export const initialState = {
     },
   ],
   error: "",
+  user: {},
   isFetching: false,
 };
 
 export const reducer = (state = initialState, action) => {
+  console.log(`PAYLOAD: ${action.payload}`);
   switch (action.type) {
+    // FETCH
     case IS_FETCHING:
       return {
         ...state,
         error: "",
         isFetching: true,
       };
+    // SUCCESS
     case POST_SIGNUP_SUCCESS:
     case POST_LOGIN_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
         error: "",
         isFetching: false,
       };
+    case POST_PLANT_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isFetching: false,
+        plants: action.payload,
+      };
+    case FETCH_PLANTID_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        loadedPlant: action.payload,
+        isFetching: false,
+      };
+    case FETCH_USERID_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        user: action.payload,
+        isFetching: false,
+      };
+    // FAILURE
     case POST_SIGNUP_FAILURE:
     case POST_LOGIN_FAILURE:
+    case POST_PLANT_FAILURE:
+    case FETCH_PLANTID_FAILURE:
+    case FETCH_USERID_FAILURE:
       return {
         ...state,
         error: action.payload,
