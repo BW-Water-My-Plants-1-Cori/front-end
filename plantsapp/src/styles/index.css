@@ -1,6 +1,7 @@
 body {
-  background-color: lightblue;
+  background-color: #8FBCB3;
 }
+
 nav {
   display: flex;
   justify-content: space-around;
