@@ -29,18 +29,17 @@ const AddPlant = ({ addPlant, userID }) => {
     plant_name: "",
     description: "",
     date_last_watered: "",
-    increment: 1,
+    increment: "",
     next_watering: "",
     species: "",
     plant_url: "",
-    date_created: "",
   });
 
   // on submit will call add plant action and close modal
   const handleSubmit = () => {
     // Add plant to database
     console.log(newPlant);
-    //addPlant(newPlant, userID);
+    addPlant(newPlant, userID);
     toggle();
 
     // Reset newPlant data
@@ -48,11 +47,10 @@ const AddPlant = ({ addPlant, userID }) => {
       plant_name: "",
       description: "",
       date_last_watered: "",
-      increment: 1,
+      increment: "",
       next_watering: "",
       species: "",
       plant_url: "",
-      date_created: "",
     });
   };
 
