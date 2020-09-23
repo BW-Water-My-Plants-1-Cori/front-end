@@ -19,7 +19,9 @@ ul li a {
   width: 85%;
   color: black;
 }
-
+#add-plant-btn {
+  width: 100%;
+}
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 
 * {

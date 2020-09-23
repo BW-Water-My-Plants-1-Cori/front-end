@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import {
   Card,
   CardImg,
@@ -9,7 +11,7 @@ import {
   CardSubtitle,
 } from "reactstrap";
 
-const PlantCard = ({ plant }) => {
+const PlantCard = ({ plant, getPlantByID }) => {
   // Code
 
   return (
@@ -29,7 +31,9 @@ const PlantCard = ({ plant }) => {
         </CardText>
         <CardBody>
           <Button color="primary">Water</Button>
-          <Button color="secondary">Edit</Button>
+          <Link to={`/plants/${plant.id}`}>
+            <Button color="secondary" onClick={() => { getPlantByID(plant.id) }}>Edit</Button>
+          </Link>
         </CardBody>
       </Card>
     </div>

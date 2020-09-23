@@ -10,12 +10,90 @@ import {
   FETCH_PLANTID_FAILURE,
   FETCH_USERID_SUCCESS,
   FETCH_USERID_FAILURE,
+  UPDATE_PLANT_SUCCESS,
+  UPDATE_PLANT_FAILURE,
 } from "../actions";
 
 export const initialState = {
   loadedPlant: {},
-  plants: [
-    {
+  plants: [],
+  error: "",
+  user: {},
+  isFetching: false,
+};
+
+export const reducer = (state = initialState, action) => {
+  console.log(`PAYLOAD: ${action.payload}`);
+  switch (action.type) {
+    // FETCH
+    case IS_FETCHING:
+      return {
+        ...state,
+        error: "",
+        isFetching: true,
+      };
+    // SUCCESS
+    case POST_SIGNUP_SUCCESS:
+    case POST_LOGIN_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isFetching: false,
+        user: action.payload.user,
+        plants: action.payload.user.plants,
+      };
+    case POST_PLANT_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isFetching: false,
+        plants: action.payload.plants,
+      };
+    case FETCH_PLANTID_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        loadedPlant: action.payload,
+        isFetching: false,
+      };
+    case FETCH_USERID_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        user: action.payload,
+        isFetching: false,
+      };
+    case UPDATE_PLANT_SUCCESS:
+      console.log(action.payload.plant);
+      const newPlants = state.plants.filter((plant) => {
+        return plant.id != action.plantID;
+      });
+      newPlants.push(action.payload.plant);
+      return {
+        ...state,
+        error: "",
+        plants: newPlants,
+        loadedPlant: {},
+        isFetching: false,
+      };
+    // FAILURE
+    case POST_SIGNUP_FAILURE:
+    case POST_LOGIN_FAILURE:
+    case POST_PLANT_FAILURE:
+    case FETCH_PLANTID_FAILURE:
+    case FETCH_USERID_FAILURE:
+    case UPDATE_PLANT_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    default:
+      return state;
+  }
+};
+
+/*    {
       plant_name: "Fern",
       description: "its a fern",
       date_last_watered: "09/20/2020 12:00 PM",
@@ -47,64 +125,4 @@ export const initialState = {
       plant_url:
         "https://upload.wikimedia.org/wikipedia/commons/2/22/Raindrops_on_Yellow_Lilly.jpg",
       date_created: "09/20/2020 1:00 AM",
-    },
-  ],
-  error: "",
-  user: {},
-  isFetching: false,
-};
-
-export const reducer = (state = initialState, action) => {
-  console.log(`PAYLOAD: ${action.payload}`);
-  switch (action.type) {
-    // FETCH
-    case IS_FETCHING:
-      return {
-        ...state,
-        error: "",
-        isFetching: true,
-      };
-    // SUCCESS
-    case POST_SIGNUP_SUCCESS:
-    case POST_LOGIN_SUCCESS:
-      return {
-        ...state,
-        error: "",
-        isFetching: false,
-      };
-    case POST_PLANT_SUCCESS:
-      return {
-        ...state,
-        error: "",
-        isFetching: false,
-        plants: action.payload,
-      };
-    case FETCH_PLANTID_SUCCESS:
-      return {
-        ...state,
-        error: "",
-        loadedPlant: action.payload,
-        isFetching: false,
-      };
-    case FETCH_USERID_SUCCESS:
-      return {
-        ...state,
-        error: "",
-        user: action.payload,
-        isFetching: false,
-      };
-    // FAILURE
-    case POST_SIGNUP_FAILURE:
-    case POST_LOGIN_FAILURE:
-    case POST_PLANT_FAILURE:
-    case FETCH_PLANTID_FAILURE:
-    case FETCH_USERID_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-        isFetching: false,
-      };
-    default:
-      return state;
-  }
-};
+    }, */

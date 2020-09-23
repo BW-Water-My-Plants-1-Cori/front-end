@@ -23,53 +23,62 @@ const StyledDiv = styled.button`
         setServerError("There is an error!")
       }) */
 
-export default class Login extends Component {
-  render() {
-    return (
-      <div className="auth-wrapper">
-        <form className="auth-inner">
-          <h3>Welcome Back!</h3>
+const Login = ({ requestLogin, isFetching }) => {
+  const mockUser = {
+    "username": "donavynhaley2",
+    "password": "password",
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-          <div className="form-group">
-            <label>Username</label>
+    requestLogin(mockUser);
+  };
+  return (
+    <div className="auth-wrapper">
+      <form className="auth-inner" onSubmit={(e) => handleSubmit(e)}>
+        <h3>Welcome Back!</h3>
+
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="username"
+            className="form-control"
+            placeholder="Enter username"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+          />
+        </div>
+
+        <div className="form-group">
+          <div className="custom-control custom-checkbox">
             <input
-              type="username"
-              className="form-control"
-              placeholder="Enter username"
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
             />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Remember me
+            </label>
           </div>
+        </div>
+        <StyledDiv>
+          <button type="submit" className="btn btn-primary btn-block">
+            Sign In
+          </button>
+        </StyledDiv>
+        <p className="forgot-password text-right">
+          Forgot <a href="#">password?</a>
+        </p>
+      </form>
+    </div>
+  );
+};
 
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-            />
-          </div>
-
-          <div className="form-group">
-            <div className="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                className="custom-control-input"
-                id="customCheck1"
-              />
-              <label className="custom-control-label" htmlFor="customCheck1">
-                Remember me
-              </label>
-            </div>
-          </div>
-          <StyledDiv>
-            <button type="submit" className="btn btn-primary btn-block">
-              Sign In<a href="https://amazing-mestorf-988b56.netlify.app/">.</a>
-            </button>
-          </StyledDiv>
-          <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
-          </p>
-        </form>
-      </div>
-    );
-  }
-}
+export default Login;
