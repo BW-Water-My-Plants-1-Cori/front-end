@@ -3,7 +3,7 @@ import { FormControl } from "bootstrap"
 //import $ from "jquery";
 import styled from "styled-components"
 import "../styles/index.css"
-import * as Yup from 'yup'
+import "./schemaLogin.js"
 
 const StyledDiv = styled.button`
   color: ${(pr) => pr.theme.blue};
@@ -11,31 +11,18 @@ const StyledDiv = styled.button`
   justify-content: center;
 `;
 
-const formSchema = Yup.object().shape({
-    username: 
-      Yup.string()
-      .username("Must be a valid username.")
-      .required("Must include username."),
-    password: 
-      Yup.string()
-      .min(6, "Passwords must be at least 6 characters long.")
-      .required("Password is Required.")
-
-      // required isn't required for checkboxes.
-  });
-
-  function Login() {
+function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
         function performValidation() {
             return username.length > 0 && password.length > 0;
-  }
+}
 
-  function handleSubmit(event) {
+function handleSubmit(event) {
     event.preventDefault();
-  }
+}
 
-  return (
+return (
     <form>
       <h3>Sign In</h3>
 

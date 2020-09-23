@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import * as Yup from 'yup'
+import "./schemaSignup.js"
 //import Axios from 'axios'
 
 const StyledDiv = styled.button`
@@ -9,34 +9,11 @@ const StyledDiv = styled.button`
   justify-content: center;
 `;
 
-const formSchema = Yup.object().shape({
-  
-  firstName: Yup
-    .string()
-    .min(3, "First name must be at least 3 characters long.")
-    .required("First name is required."),
-  lastName: Yup
-    .string()
-    .min(3, "Last name must be at least 3 characters long.")
-    .required("Last name is required."),
-  email: Yup
-    .string()
-    .email("Must be a valid email address.")
-    .required("Must include email address."),
-  password: Yup
-    .string()
-    .min(6, "Passwords must be at least 6 characters long.")
-    .required("Password is Required"),
-  
-    // required isn't required for checkboxes.
-});
-
-
 function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
-  const [FormControl, setFormControl] = useState("");
+  const [FormControl] = useState("");
   const [password, setPassword] = useState("");
     
   function performValidation() {
