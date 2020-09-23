@@ -29,12 +29,13 @@ ul li a {
 }
 
 body {
-  background-color: lightblue;
+  background-color: #8fbcb3;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
   font-family: "Fira Sans", sans-serif;
-}
+} /*  
+*/
 
 h1,
 h2,

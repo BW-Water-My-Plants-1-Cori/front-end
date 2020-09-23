@@ -1,5 +1,8 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
+import { Button } from "reactstrap";
 import styled from "styled-components";
+import "./schemaSignup.js";
+
 //import Axios from 'axios'
 
 const StyledDiv = styled.button`
@@ -25,7 +28,8 @@ const StyledDiv = styled.button`
         setServerError("There is an error!")
       }) */
 
-const SignUp = ({ requestSignup, isFetching }) => {
+const SignUp = ({ requestSignup }) => {
+  // Mock data until form is fully functional
   const mockUser = {
     username: "donavynhaley2",
     phonenumber: "(123)566-8891",
@@ -34,15 +38,27 @@ const SignUp = ({ requestSignup, isFetching }) => {
     first_name: "donavyn",
     last_name: "haley",
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const mockHandleSubmit = () => {
     requestSignup(mockUser);
   };
+  // -----------------------------------------
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [FormControl] = useState("");
+  const [password, setPassword] = useState("");
+
+  function performValidation() {
+    return firstName.length > 0 && lastName.length > 0;
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
   return (
     <div className="auth-wrapper">
-      <form className="auth-inner" onSubmit={(e) => handleSubmit(e)}>
-        <h3>Join Us!</h3>
+      <form className="auth-inner">
+        <h3>Sign Up</h3>
 
         <div className="form-group">
           <label>First name</label>
@@ -50,12 +66,20 @@ const SignUp = ({ requestSignup, isFetching }) => {
             type="text"
             className="form-control"
             placeholder="First name"
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
           />
         </div>
 
         <div className="form-group">
           <label>Last name</label>
-          <input type="text" className="form-control" placeholder="Last name" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Last name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </div>
 
         <div className="form-group">
@@ -64,6 +88,8 @@ const SignUp = ({ requestSignup, isFetching }) => {
             type="email"
             className="form-control"
             placeholder="Enter email"
+            value={emailAddress}
+            onChange={(e) => setEmailAddress(e.target.value)}
           />
         </div>
 
@@ -73,8 +99,11 @@ const SignUp = ({ requestSignup, isFetching }) => {
             type="password"
             className="form-control"
             placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+
         <StyledDiv>
           <button type="submit" className="btn btn-primary btn-block">
             Sign Up
@@ -84,6 +113,9 @@ const SignUp = ({ requestSignup, isFetching }) => {
           Already registered <a href="#">sign in?</a>
         </p>
       </form>
+      <Button color="primary" onClick={mockHandleSubmit}>
+        Mock Signup
+      </Button>
     </div>
   );
 };
