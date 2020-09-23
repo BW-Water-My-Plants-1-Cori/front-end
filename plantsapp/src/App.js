@@ -2,9 +2,7 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { Spinner } from "reactstrap";
 // Components
-import Home from "./components/Home";
 import Plants from "./components/Plants";
-import PlantCard from "./components/PlantCard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import AddPlant from "./components/AddPlant";
@@ -17,6 +15,7 @@ import {
   requestSignup,
   requestLogin,
   updatePlant,
+  deletePlant,
 } from "./actions";
 
 function App(props) {
@@ -60,22 +59,18 @@ function App(props) {
                   isFetching={props.isFetching}
                 />
               </Route>
-              <Route exact path="/plants">
-                <Plants />
-              </Route>
               <Route path="/plants/:id">
                 <LoadedPlant
                   plant={props.loadedPlant}
                   updatePlant={props.updatePlant}
+                  deletePlant={props.deletePlant}
                 />
               </Route>
             </Switch>
           ) : (
-            <Spinner
-              color="info"
-              id="loading-spinner"
-              style={{ width: "5rem", height: "5rem" }}
-            />
+            <div id="loading-spinner-container">
+              <Spinner id="loading-spinner" color="info" />
+            </div>
           )
         }
       </div>
@@ -98,4 +93,5 @@ export default connect(mapStateToProps, {
   addPlant,
   getPlantByID,
   updatePlant,
+  deletePlant,
 })(App);

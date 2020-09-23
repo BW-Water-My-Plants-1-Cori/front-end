@@ -9,6 +9,7 @@ import {
   Button,
   CardTitle,
   CardSubtitle,
+  CardFooter,
 } from "reactstrap";
 
 const PlantCard = ({ plant, getPlantByID }) => {
@@ -17,10 +18,23 @@ const PlantCard = ({ plant, getPlantByID }) => {
   return (
     <div className="plant-card">
       <Card body inverse color="info">
-        <CardBody>
-          <CardTitle>{plant.plant_name}</CardTitle>
-          <CardSubtitle>Next Water Date: {plant.next_watering}</CardSubtitle>
-        </CardBody>
+        <div className="card-body-wrapper">
+          <CardBody>
+            <CardTitle>{plant.plant_name}</CardTitle>
+            <CardSubtitle>Next Water Date: {plant.next_watering}</CardSubtitle>
+          </CardBody>
+          <Link to={`/plants/${plant.id}`}>
+            <Button
+              color="secondary"
+              onClick={() => {
+                getPlantByID(plant.id);
+              }}
+            >
+              Edit
+            </Button>
+          </Link>
+        </div>
+
         <CardImg width="100%" src={plant.plant_url} alt="Card image cap" />
         <CardText>
           <span>
@@ -29,12 +43,11 @@ const PlantCard = ({ plant, getPlantByID }) => {
             Date Created: {plant.date_created}
           </span>
         </CardText>
-        <CardBody>
-          <Button color="primary">Water</Button>
-          <Link to={`/plants/${plant.id}`}>
-            <Button color="secondary" onClick={() => { getPlantByID(plant.id) }}>Edit</Button>
-          </Link>
-        </CardBody>
+        <CardFooter>
+          <Button color="primary" id="water-button">
+            Water
+          </Button>
+        </CardFooter>
       </Card>
     </div>
   );

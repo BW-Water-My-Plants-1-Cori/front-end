@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory } from "react-router-dom";
-const LoadedPlant = ({ plant, updatePlant }) => {
+
+const LoadedPlant = ({ plant, updatePlant, deletePlant }) => {
   const [updatePlantData, setUpdatePlantData] = useState({});
   const history = useHistory();
   const handleSubmit = (e) => {
@@ -19,6 +20,10 @@ const LoadedPlant = ({ plant, updatePlant }) => {
     });
   };
 
+  const handleDelete = () => {
+    deletePlant(plant.id);
+    history.push("/");
+  };
   // Kind of jank but this if handles loading plant data into state.
   if (
     Object.keys(plant).length != 0 &&
@@ -29,7 +34,12 @@ const LoadedPlant = ({ plant, updatePlant }) => {
   return (
     <>
       <Form onSubmit={(e) => handleSubmit(e)}>
-        <h2>Edit your plant</h2>
+        <div className="edit-header">
+          <h2>Edit your plant</h2>
+          <Button color="danger" onClick={handleDelete}>
+            DELETE
+          </Button>
+        </div>
         <Row form>
           <Col md={6}>
             <FormGroup>
@@ -102,25 +112,5 @@ const LoadedPlant = ({ plant, updatePlant }) => {
       </Form>
     </>
   );
-  /*
-    useEffect(()=>{
-        getPlantByID(plantID)
-    },[])
-    return (
-        <>z`
-        <h2>Edit </h2>
-
-       <p>Form to edit</p>
-
-      </>
-    )*/
 };
 export default LoadedPlant;
-
-/* things that you can change
-- name
-- description
-increment
-species
-image url
- */

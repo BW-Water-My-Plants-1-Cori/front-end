@@ -10,3 +10,28 @@
 .plant-card {
   margin: 0.5rem;
 }
+.edit-header {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+#water-button {
+  width: 100%;
+}
+.card-body-wrapper {
+  display: flex;
+}
+#loading-spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+#loading-spinner {
+  width: 5rem;
+  height: 5rem;
+}
+/*229*/

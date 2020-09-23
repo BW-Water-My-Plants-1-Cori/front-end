@@ -13,6 +13,23 @@ import {
   Input,
 } from "reactstrap";
 const AddPlant = ({ addPlant, userID }) => {
+  /* MOCK ADDING PLANTS */
+  const mockPlant = {
+    plant_name: "Rose",
+    description: "its a rose",
+    date_last_watered: "09/20/2020 12:00 PM",
+    increment: 20,
+    next_watering: "09/20/2020 4:00 PM",
+    species: "rose",
+    plant_url:
+      "https://www.gardeningknowhow.com/wp-content/uploads/2019/11/red-rose.jpg",
+  };
+  const mockHandleSubmit = () => {
+    addPlant(mockPlant, userID);
+    toggle();
+  };
+  /*------------------------------------------ */
+
   // logic for modal open/close
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -40,7 +57,7 @@ const AddPlant = ({ addPlant, userID }) => {
   const handleSubmit = () => {
     // Add plant to database
     console.log(newPlant);
-    //addPlant(newPlant, userID);
+    addPlant(newPlant, userID);
     toggle();
 
     // Reset newPlant data
@@ -164,6 +181,9 @@ const AddPlant = ({ addPlant, userID }) => {
           </Button>
           <Button color="secondary" onClick={toggle}>
             Cancel
+          </Button>
+          <Button color="info" onClick={mockHandleSubmit}>
+            MOCKADD
           </Button>
         </ModalFooter>
       </Modal>
