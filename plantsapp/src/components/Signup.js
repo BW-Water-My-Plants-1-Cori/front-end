@@ -102,4 +102,3 @@ export default Signup;
       .catch(err => {
         setServerError("There is an error!")
       }) */
-

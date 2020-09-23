@@ -42,6 +42,7 @@ export const requestLogin = (userData) => (dispatch) => {
   axiosWithAuth()
     .post("/login", userData)
     .then((res) => {
+      localStorage.setItem("token", res.data.token);
       dispatch({ type: POST_LOGIN_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -88,7 +89,7 @@ export const updatePlant = (plantData, id) => (dispatch) => {
   axiosWithAuth()
     .put(`plants/${id}`, plantData)
     .then((res) => {
-      dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data });
+      dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data, plantID: id });
     })
     .catch((err) => {
       dispatch({ type: UPDATE_PLANT_FAILURE, payload: err });
@@ -160,5 +161,5 @@ DELETE
 STRETCH
 GET
 users/:id/plants/oldest
-users/:id/plants/newest 
+users/:id/plants/newest
 */

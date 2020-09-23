@@ -4,6 +4,10 @@ import { FormControl } from "bootstrap"
 import styled from "styled-components"
 import "../styles/index.css"
 import "./schemaLogin.js"
+import React, { useState, Component } from "react";
+import styled from "styled-components";
+
+//import Axios from 'axios'
 
 const StyledDiv = styled.button`
   color: ${(pr) => pr.theme.blue};
@@ -22,10 +26,10 @@ function handleSubmit(event) {
     event.preventDefault();
 }
 
-return (
-    <form>
-      <h3>Sign In</h3>
-
+  return (
+    <div className="auth-wrapper">
+      <form className="auth-inner" onSubmit={(e) => handleSubmit(e)}>
+        <h3>Welcome Back!</h3>
       <div className="form-group">
           <label>Username</label>
           <input type="email" className="form-control" placeholder="Enter username" />
@@ -70,6 +74,3 @@ export default Login;
 
     
         
-        
-
-
