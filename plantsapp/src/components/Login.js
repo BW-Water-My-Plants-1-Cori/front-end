@@ -1,5 +1,6 @@
 import React, { useState, Component } from "react";
 import styled from "styled-components";
+
 //import Axios from 'axios'
 
 const StyledDiv = styled.button`
@@ -25,8 +26,8 @@ const StyledDiv = styled.button`
 
 const Login = ({ requestLogin, isFetching }) => {
   const mockUser = {
-    "username": "donavynhaley2",
-    "password": "password",
+    username: "donavynhaley2",
+    password: "password",
   };
   const handleSubmit = (e) => {
     e.preventDefault();

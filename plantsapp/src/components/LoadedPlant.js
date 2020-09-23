@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
-
+import { useHistory } from "react-router-dom";
 const LoadedPlant = ({ plant, updatePlant }) => {
   const [updatePlantData, setUpdatePlantData] = useState({});
-
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(updatePlantData);
     updatePlant(updatePlantData, plant.id);
+    history.push("/");
   };
 
   const handleChange = (e) => {
