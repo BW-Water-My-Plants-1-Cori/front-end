@@ -35,7 +35,7 @@ const LoadedPlant = ({ plant, updatePlant }) => {
               <Label for="name">Name</Label>
               <Input
                 type="text"
-                name="name"
+                name="plant_name"
                 placeholder={plant.plant_name}
                 onChange={(e) => {
                   handleChange(e);
@@ -77,7 +77,7 @@ const LoadedPlant = ({ plant, updatePlant }) => {
               <Label for="imageURL">Plant Image URL</Label>
               <Input
                 type="text"
-                name="imageURL"
+                name="plant_url"
                 placeholder={plant.plant_url}
                 onChange={(e) => {
                   handleChange(e);
