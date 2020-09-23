@@ -1,9 +1,3 @@
-import React, { useState, Component } from "react"
-import { FormControl } from "bootstrap"
-//import $ from "jquery";
-import styled from "styled-components"
-import "../styles/index.css"
-import "./schemaLogin.js"
 import React, { useState, Component } from "react";
 import styled from "styled-components";
 
@@ -15,62 +9,77 @@ const StyledDiv = styled.button`
   justify-content: center;
 `;
 
-function Login() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-        function performValidation() {
-            return username.length > 0 && password.length > 0;
-}
+/*axios
+      .post('https://waterplantsunit4.herokuapp.com/login')
+      .then(res => {
+        console.log("Form -> res", res.data)
+        setPost([...post, res.data])
+        setFormState({
+          username: '',
+          password: ''
+        })
+        setServerError(null)
+      })
+      .catch(err => {
+        setServerError("There is an error!")
+      }) */
 
-function handleSubmit(event) {
-    event.preventDefault();
-}
+const Login = ({ requestLogin, isFetching }) => {
+  const mockUser = {
+    username: "donavynhaley2",
+    password: "password",
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    requestLogin(mockUser);
+  };
   return (
     <div className="auth-wrapper">
       <form className="auth-inner" onSubmit={(e) => handleSubmit(e)}>
         <h3>Welcome Back!</h3>
-      <div className="form-group">
+
+        <div className="form-group">
           <label>Username</label>
-          <input type="email" className="form-control" placeholder="Enter username" />
-      </div>
-          <FormControl
-              autoFocus
-                  type="text"
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
+          <input
+            type="username"
+            className="form-control"
+            placeholder="Enter username"
           />
-      <div className="form-group">
+        </div>
+
+        <div className="form-group">
           <label>Password</label>
-          <input type="password" className="form-control" placeholder="Enter password" />
-          <FormControl
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              type="password"
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
           />
-      </div>
+        </div>
 
-      <div className="form-group">
+        <div className="form-group">
           <div className="custom-control custom-checkbox">
-            <input type="checkbox"    className="custom-control-input" id="customCheck1" />
-            <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
+            />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Remember me
+            </label>
           </div>
-      </div>
-
-      <StyledDiv>
+        </div>
+        <StyledDiv>
           <button type="submit" className="btn btn-primary btn-block">
-            Sign In<a href="https://waterplantsunit4.herokuapp.com/login">.</a>
+            Sign In
           </button>
-      </StyledDiv>
-
-            <p className="forgot-password text-right">
-                Forgot <a href="#">password?</a>
-            </p>
-    </form>
-    );
-  }
+        </StyledDiv>
+        <p className="forgot-password text-right">
+          Forgot <a href="#">password?</a>
+        </p>
+      </form>
+    </div>
+  );
+};
 
 export default Login;
-
-    
-        
