@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import AddPlant from "./components/AddPlant";
 import LoadedPlant from "./components/LoadedPlant";
+import ExperienceBar from "./components/ExperienceBar";
 // Redux
 import { connect } from "react-redux";
 import {
@@ -41,6 +42,10 @@ function App(props) {
           !props.isFetching ? (
             <Switch>
               <Route exact path="/">
+                <ExperienceBar
+                  userLevel={props.user.level}
+                  userXP={props.user.experience}
+                />
                 <AddPlant addPlant={props.addPlant} userID={props.user.id} />
                 <Plants
                   plants={props.plants}
