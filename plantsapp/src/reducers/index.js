@@ -37,6 +37,7 @@ export const reducer = (state = initialState, action) => {
     // SUCCESS
     case POST_SIGNUP_SUCCESS:
     case POST_LOGIN_SUCCESS:
+    case DELETE_PLANT_SUCCESS:
       return {
         ...state,
         error: "",
@@ -78,15 +79,7 @@ export const reducer = (state = initialState, action) => {
         loadedPlant: {},
         isFetching: false,
       };
-    case DELETE_PLANT_SUCCESS:
-      console.log(action.payload);
-    /*return {
-        ...state,
-        error: "",
-        plants: action.payload.user.plants,
-        loadedPlant: {},
-        isFetching: false,
-      };*/
+
     // FAILURE
     case POST_SIGNUP_FAILURE:
     case POST_LOGIN_FAILURE:
