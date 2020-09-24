@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "reactstrap";
-import styled from "styled-components";
+
 
 
 const Login = ({ requestLogin }) => {
@@ -13,8 +13,10 @@ const Login = ({ requestLogin }) => {
     requestLogin(mockUser);
   };
   // ---------------------------------
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   function performValidation() {
     return username.length > 0 && password.length > 0;
   }
@@ -26,6 +28,7 @@ const Login = ({ requestLogin }) => {
     <div className="auth-wrapper">
       <form className="auth-inner" onSubmit={(e) => handleSubmit(e)}>
         <h3>Welcome Back!</h3>
+        
         <div className="form-group">
           <label>Username</label>
           <input
@@ -61,7 +64,7 @@ const Login = ({ requestLogin }) => {
         </div>
 
           <button type="submit" className="btn btn-primary btn-block">
-            Sign In<a href="https://waterplantsunit4.herokuapp.com/login"></a>
+            Sign In
           </button>
 
         <p className="forgot-password text-right">
