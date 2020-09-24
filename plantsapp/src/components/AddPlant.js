@@ -82,7 +82,7 @@ const AddPlant = ({ addPlant, userID }) => {
   };
   return (
     <div>
-      <Button color="success" onClick={toggle}>
+      <Button className="btn-brown" onClick={toggle}>
         Add Plant
       </Button>
       <Modal isOpen={modal} toggle={toggle}>

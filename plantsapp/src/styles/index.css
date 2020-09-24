@@ -1,18 +1,60 @@
+/* Color Guide From Marketing:
+Soft green - #8fbcb3 (header, footer)
+Dark font - #293845 (nav, p when background is light)
+Green accent - #217868 (special text, like Sign Up)
+Neutral tan - #c4bdaf (background)
+Darker neutral tan - #887a5f (buttons)
+Darker gray, transparent - rgba(65,65,69, 0.7) (make text stand out over images)
+*/
+
 nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 1rem;
-  background-color: white;
+  background-color: #8fbcb3;
 }
+
+nav h1 {
+  color: white;
+  padding: 3% 2%;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: "Poiret One", cursive;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  /* font-size: 18px;
+  margin-bottom: 15px; */
+  font-family: "Poiret One", cursive;
+}
+
 ul {
   display: flex;
+  align-items: center;
 }
 ul li {
   margin: 0.8rem;
 }
 ul li a {
-  color: gray;
+  color: rgb(65, 65, 69);
   font-size: 1.1rem;
+}
+ul li a:hover {
+  text-decoration: none;
+  color: #217868;
+}
+.btn-brown {
+  background-color: #c4bdaf;
+  border-color: #c4bdaf;
+  color: rgb(65, 65, 69);
+}
+.btn-brown:hover {
+  background-color: #887a5f;
+  border-color: #887a5f;
 }
 .content {
   margin: auto;
@@ -32,7 +74,7 @@ body {
   background: rgba(143, 188, 179, 0.8);
   background-image: url("https://pngimg.com/uploads/rain/rain_PNG13453.png");
   background-repeat: no-repeat, repeat;
-
+  background-size: 100%;
   min-height: 100vh;
   display: flex;
   font-weight: 400;

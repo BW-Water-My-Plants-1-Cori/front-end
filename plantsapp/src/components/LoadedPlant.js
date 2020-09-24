@@ -32,8 +32,8 @@ const LoadedPlant = ({ plant, updatePlant, deletePlant }) => {
     setUpdatePlantData(plant);
   }
   return (
-    <>
-      <Form onSubmit={(e) => handleSubmit(e)}>
+    <div className="auth-wrapper">
+      <Form className="auth-inner" onSubmit={(e) => handleSubmit(e)}>
         <div className="edit-header">
           <h2>Edit your plant</h2>
           <Button color="danger" onClick={handleDelete}>
@@ -110,7 +110,7 @@ const LoadedPlant = ({ plant, updatePlant, deletePlant }) => {
         </FormGroup>
         <Button color="success">Update</Button>
       </Form>
-    </>
+    </div>
   );
 };
 export default LoadedPlant;

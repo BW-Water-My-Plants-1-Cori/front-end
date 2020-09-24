@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import { Spinner, Alert } from "reactstrap";
+import { Spinner, UncontrolledAlert } from "reactstrap";
 // Components
 import Plants from "./components/Plants";
 import Login from "./components/Login";
@@ -26,7 +26,9 @@ function App(props) {
   return (
     <div className="App">
       {props.error.length > 0 ? (
-        <Alert color="danger">ERROR: {props.error}</Alert>
+        <UncontrolledAlert color="danger">
+          ERROR: {props.error}
+        </UncontrolledAlert>
       ) : null}
       <nav>
         <h1>Water My Plants</h1>
@@ -40,6 +42,20 @@ function App(props) {
           <li>
             <Link to="/signup">Signup</Link>
           </li>
+          {Object.keys(props.user).length != 0 ? (
+            <>
+              <li>
+                <AddPlant addPlant={props.addPlant} userID={props.user.id} />
+              </li>
+              <li>
+                <LoadedUser
+                  user={props.user}
+                  updateUser={props.updateUser}
+                  deleteUser={props.deleteUser}
+                />
+              </li>
+            </>
+          ) : null}
         </ul>
       </nav>
       <div className="content">
@@ -52,14 +68,6 @@ function App(props) {
                   userLevel={props.user.level}
                   userXP={props.user.experience}
                 />
-                <div className="home-button-wrapper">
-                  <AddPlant addPlant={props.addPlant} userID={props.user.id} />
-                  <LoadedUser
-                    user={props.user}
-                    updateUser={props.updateUser}
-                    deleteUser={props.deleteUser}
-                  />
-                </div>
                 <Plants
                   plants={props.plants}
                   getPlantByID={props.getPlantByID}
