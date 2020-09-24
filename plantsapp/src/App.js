@@ -75,16 +75,10 @@ function App(props) {
                 updatePlantWater={props.updatePlantWater}
               />
               <Route path="/login">
-                <Login
-                  requestLogin={props.requestLogin}
-                  isFetching={props.isFetching}
-                />
+                <Login requestLogin={props.requestLogin} />
               </Route>
               <Route path="/signup">
-                <Signup
-                  requestSignup={props.requestSignup}
-                  isFetching={props.isFetching}
-                />
+                <Signup requestSignup={props.requestSignup} />
               </Route>
               <Route path="/plants/:id">
                 <LoadedPlant

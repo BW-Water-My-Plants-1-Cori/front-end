@@ -5,12 +5,6 @@ import { useHistory } from "react-router-dom";
 
 //import Axios from 'axios'
 
-const StyledDiv = styled.button`
-  color: ${(pr) => pr.theme.blue};
-  border-radius: 5px;
-  justify-content: center;
-`;
-
 /*axios
       .post('https://waterplantsunit4.herokuapp.com/login')
       .then(res => {
@@ -27,26 +21,29 @@ const StyledDiv = styled.button`
       }) */
 
 const Login = ({ requestLogin }) => {
-  // Mock code unitl login is functional
   const history = useHistory();
-  const mockUser = {
-    username: "donavynhaley6",
-    password: "password6",
-  };
-  const mockHandleSubmit = () => {
-    requestLogin(mockUser);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    requestLogin(formData);
     history.push("/");
   };
-  // ---------------------------------
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  function performValidation() {
-    return username.length > 0 && password.length > 0;
-  }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  /* function performValidation() {
+    return username.length > 0 && password.length > 0;
+  }*/
+
   return (
     <div className="auth-wrapper">
       <form className="auth-inner" onSubmit={(e) => handleSubmit(e)}>
@@ -58,8 +55,9 @@ const Login = ({ requestLogin }) => {
             placeholder="Enter username"
             autoFocus
             type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name="username"
+            value={formData.username}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className="form-group">
@@ -68,8 +66,9 @@ const Login = ({ requestLogin }) => {
             type="password"
             className="form-control"
             placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            name="password"
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className="form-group">
@@ -85,20 +84,12 @@ const Login = ({ requestLogin }) => {
           </div>
         </div>
 
-        <StyledDiv>
-          <button type="submit" className="btn btn-primary btn-block">
-            Sign In<a href="https://waterplantsunit4.herokuapp.com/login">.</a>
-          </button>
-        </StyledDiv>
+        <Button color="brown">Sign In</Button>
 
         <p className="forgot-password text-right">
           Forgot <a href="#">password?</a>
         </p>
       </form>
-      <Button color="primary" onClick={mockHandleSubmit}>
-        {" "}
-        MOCK LOGIN
-      </Button>
     </div>
   );
 };

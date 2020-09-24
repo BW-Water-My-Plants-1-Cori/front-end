@@ -67,35 +67,28 @@ const LoadedPlant = ({ plant, updatePlant, deletePlant }) => {
             </FormGroup>
           </Col>
         </Row>
-        <Row form>
-          <Col md={3}>
-            <FormGroup>
-              <Label for="increment">Plant Watering Increment</Label>
-              <Input
-                type="number"
-                name="increment"
-                placeholder={plant.increment}
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-              />
-            </FormGroup>
-          </Col>
-
-          <Col md={9}>
-            <FormGroup>
-              <Label for="imageURL">Plant Image URL</Label>
-              <Input
-                type="text"
-                name="plant_url"
-                placeholder={plant.plant_url}
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-              />
-            </FormGroup>
-          </Col>
-        </Row>
+        <FormGroup>
+          <Label for="increment">Watering Increment(Days)</Label>
+          <Input
+            type="number"
+            name="increment"
+            placeholder={plant.increment}
+            onChange={(e) => {
+              handleChange(e);
+            }}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="imageURL">Plant Image URL</Label>
+          <Input
+            type="text"
+            name="plant_url"
+            placeholder={plant.plant_url}
+            onChange={(e) => {
+              handleChange(e);
+            }}
+          />
+        </FormGroup>
         <FormGroup>
           <Label for="description">Description</Label>
           <Input
@@ -107,7 +100,7 @@ const LoadedPlant = ({ plant, updatePlant, deletePlant }) => {
             }}
           />
         </FormGroup>
-        <Button color="success">Update</Button>
+        <Button color="brown">Update</Button>
       </Form>
     </div>
   );
