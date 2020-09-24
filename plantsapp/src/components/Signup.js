@@ -31,10 +31,10 @@ const StyledDiv = styled.button`
 const SignUp = ({ requestSignup }) => {
   // Mock data until form is fully functional
   const mockUser = {
-    username: "donavynhaley2",
-    phonenumber: "(123)566-8891",
+    username: "donavynhaley5",
+    phonenumber: "(503)566-8891",
     email: "donavynhaley5@gmail.com",
-    password: "password",
+    password: "password5",
     first_name: "donavyn",
     last_name: "haley",
   };

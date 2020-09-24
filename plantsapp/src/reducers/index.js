@@ -14,6 +14,10 @@ import {
   UPDATE_PLANT_FAILURE,
   DELETE_PLANT_SUCCESS,
   DELETE_PLANT_FAILURE,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE,
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAILURE,
 } from "../actions";
 
 export const initialState = {
@@ -38,6 +42,7 @@ export const reducer = (state = initialState, action) => {
     case POST_SIGNUP_SUCCESS:
     case POST_LOGIN_SUCCESS:
     case DELETE_PLANT_SUCCESS:
+    case UPDATE_USER_SUCCESS:
       return {
         ...state,
         error: "",
@@ -79,7 +84,15 @@ export const reducer = (state = initialState, action) => {
         loadedPlant: {},
         isFetching: false,
       };
-
+    case DELETE_USER_SUCCESS:
+      console.log(action.payload);
+      return {
+        ...state,
+        error: "",
+        user: {},
+        plants: [],
+        isFetching: false,
+      };
     // FAILURE
     case POST_SIGNUP_FAILURE:
     case POST_LOGIN_FAILURE:
@@ -88,6 +101,8 @@ export const reducer = (state = initialState, action) => {
     case FETCH_USERID_FAILURE:
     case UPDATE_PLANT_FAILURE:
     case DELETE_PLANT_FAILURE:
+    case UPDATE_USER_FAILURE:
+    case DELETE_USER_FAILURE:
       return {
         ...state,
         error: action.payload,

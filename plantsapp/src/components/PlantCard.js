@@ -38,7 +38,7 @@ const PlantCard = ({ plant, getPlantByID }) => {
         <CardImg width="100%" src={plant.plant_url} alt="Card image cap" />
         <CardText>
           <span>
-            Description: {plant.description} <br />
+            Description: {plant.desription} <br />
             Species: {plant.species} <br />
             Date Created: {plant.date_created}
           </span>

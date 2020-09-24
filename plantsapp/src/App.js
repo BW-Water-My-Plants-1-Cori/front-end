@@ -7,7 +7,9 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import AddPlant from "./components/AddPlant";
 import LoadedPlant from "./components/LoadedPlant";
+import LoadedUser from "./components/LoadedUser";
 import ExperienceBar from "./components/ExperienceBar";
+
 // Redux
 import { connect } from "react-redux";
 import {
@@ -17,6 +19,8 @@ import {
   requestLogin,
   updatePlant,
   deletePlant,
+  updateUser,
+  deleteUser,
 } from "./actions";
 
 function App(props) {
@@ -46,7 +50,14 @@ function App(props) {
                   userLevel={props.user.level}
                   userXP={props.user.experience}
                 />
-                <AddPlant addPlant={props.addPlant} userID={props.user.id} />
+                <div className="home-button-wrapper">
+                  <AddPlant addPlant={props.addPlant} userID={props.user.id} />
+                  <LoadedUser
+                    user={props.user}
+                    updateUser={props.updateUser}
+                    deleteUser={props.deleteUser}
+                  />
+                </div>
                 <Plants
                   plants={props.plants}
                   getPlantByID={props.getPlantByID}
@@ -99,4 +110,6 @@ export default connect(mapStateToProps, {
   getPlantByID,
   updatePlant,
   deletePlant,
+  updateUser,
+  deleteUser,
 })(App);

@@ -28,8 +28,8 @@ const StyledDiv = styled.button`
 const Login = ({ requestLogin }) => {
   // Mock code unitl login is functional
   const mockUser = {
-    username: "donavynhaley2",
-    password: "password",
+    username: "donavynhaley5",
+    password: "password5",
   };
   const mockHandleSubmit = () => {
     requestLogin(mockUser);
