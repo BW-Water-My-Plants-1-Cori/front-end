@@ -2,28 +2,6 @@ import React, { useState } from "react";
 import { Button } from "reactstrap";
 import styled from "styled-components";
 
-//import Axios from 'axios'
-
-const StyledDiv = styled.button`
-  color: ${(pr) => pr.theme.blue};
-  border-radius: 5px;
-  justify-content: center;
-`;
-
-/*axios
-      .post('https://waterplantsunit4.herokuapp.com/login')
-      .then(res => {
-        console.log("Form -> res", res.data)
-        setPost([...post, res.data])
-        setFormState({
-          username: '',
-          password: ''
-        })
-        setServerError(null)
-      })
-      .catch(err => {
-        setServerError("There is an error!")
-      }) */
 
 const Login = ({ requestLogin }) => {
   // Mock code unitl login is functional
@@ -82,11 +60,9 @@ const Login = ({ requestLogin }) => {
           </div>
         </div>
 
-        <StyledDiv>
           <button type="submit" className="btn btn-primary btn-block">
-            Sign In<a href="https://waterplantsunit4.herokuapp.com/login">.</a>
+            Sign In<a href="https://waterplantsunit4.herokuapp.com/login"></a>
           </button>
-        </StyledDiv>
 
         <p className="forgot-password text-right">
           Forgot <a href="#">password?</a>
@@ -101,3 +77,27 @@ const Login = ({ requestLogin }) => {
 };
 
 export default Login;
+
+
+//import Axios from 'axios'
+
+/*const StyledDiv = styled.button`
+  color: ${(pr) => pr.theme.blue};
+  border-radius: 5px;
+  justify-content: center;
+`; */
+
+/*axios
+      .post('https://waterplantsunit4.herokuapp.com/login')
+      .then(res => {
+        console.log("Form -> res", res.data)
+        setPost([...post, res.data])
+        setFormState({
+          username: '',
+          password: ''
+        })
+        setServerError(null)
+      })
+      .catch(err => {
+        setServerError("There is an error!")
+      }) */
