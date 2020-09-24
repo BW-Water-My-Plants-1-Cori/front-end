@@ -105,7 +105,7 @@ export const reducer = (state = initialState, action) => {
     case DELETE_USER_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload.response.data.message,
         isFetching: false,
       };
     default:

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "reactstrap";
 import styled from "styled-components";
 import "./schemaSignup.js";
+import { useHistory } from "react-router-dom";
 
 //import Axios from 'axios'
 
@@ -30,16 +31,18 @@ const StyledDiv = styled.button`
 
 const SignUp = ({ requestSignup }) => {
   // Mock data until form is fully functional
+  const history = useHistory();
   const mockUser = {
-    username: "donavynhaley5",
-    phonenumber: "(503)566-8891",
-    email: "donavynhaley5@gmail.com",
-    password: "password5",
+    username: "donavynhaley6",
+    phonenumber: "(300)566-8891",
+    email: "donavynhaley6@gmail.com",
+    password: "password6",
     first_name: "donavyn",
     last_name: "haley",
   };
   const mockHandleSubmit = () => {
     requestSignup(mockUser);
+    history.push("/login");
   };
   // -----------------------------------------
 

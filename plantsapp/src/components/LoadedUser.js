@@ -11,6 +11,7 @@ import {
   FormGroup,
   Label,
   Input,
+  Alert,
 } from "reactstrap";
 const LoadedUser = ({ user, updateUser, deleteUser }) => {
   const [userInfo, setUserInfo] = useState({
@@ -24,10 +25,18 @@ const LoadedUser = ({ user, updateUser, deleteUser }) => {
 
   // Edit user
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(userInfo);
-    updateUser(userInfo, user.id);
-    toggle();
+    if (userInfo.password != 0) {
+      e.preventDefault();
+      console.log(userInfo);
+      updateUser(userInfo, user.id);
+      toggle();
+    } else {
+      return (
+        <Alert color="danger">
+          Please add your old password or a new password
+        </Alert>
+      );
+    }
   };
 
   // Update userInfo

@@ -110,3 +110,7 @@ html,
 .forgot-password a {
   color: #41a95e;
 }
+
+.alert {
+  margin-bottom: 0;
+}

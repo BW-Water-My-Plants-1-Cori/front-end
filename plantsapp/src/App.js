@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import { Spinner } from "reactstrap";
+import { Spinner, Alert } from "reactstrap";
 // Components
 import Plants from "./components/Plants";
 import Login from "./components/Login";
@@ -9,7 +9,6 @@ import AddPlant from "./components/AddPlant";
 import LoadedPlant from "./components/LoadedPlant";
 import LoadedUser from "./components/LoadedUser";
 import ExperienceBar from "./components/ExperienceBar";
-
 // Redux
 import { connect } from "react-redux";
 import {
@@ -26,6 +25,9 @@ import {
 function App(props) {
   return (
     <div className="App">
+      {props.error.length > 0 ? (
+        <Alert color="danger">ERROR: {props.error}</Alert>
+      ) : null}
       <nav>
         <h1>Water My Plants</h1>
         <ul>

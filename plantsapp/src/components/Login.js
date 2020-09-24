@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "reactstrap";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 //import Axios from 'axios'
 
@@ -27,12 +28,14 @@ const StyledDiv = styled.button`
 
 const Login = ({ requestLogin }) => {
   // Mock code unitl login is functional
+  const history = useHistory();
   const mockUser = {
-    username: "donavynhaley5",
-    password: "password5",
+    username: "donavynhaley6",
+    password: "password6",
   };
   const mockHandleSubmit = () => {
     requestLogin(mockUser);
+    history.push("/");
   };
   // ---------------------------------
   const [username, setUsername] = useState("");
