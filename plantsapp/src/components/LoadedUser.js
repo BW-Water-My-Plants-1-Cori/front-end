@@ -71,7 +71,7 @@ const LoadedUser = ({ user, updateUser, deleteUser }) => {
 
   return (
     <div>
-      <Button color="info" onClick={toggle}>
+      <Button className="btn-brown" onClick={toggle}>
         Edit User
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
