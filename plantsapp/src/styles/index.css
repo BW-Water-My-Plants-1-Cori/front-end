@@ -53,8 +53,18 @@ ul li a:hover {
   background-color: #887a5f;
   border-color: #887a5f;
 }
+.btn-brown:focus {
+  background-color: #887a5f;
+  border-color: #887a5f;
+}
 .modal-content {
-  background-color: #217868;
+  background-color: #289e88;
+}
+.modal-footer {
+  border-top: 1px solid rgba(65, 65, 69, 0.7);
+}
+.modal-header {
+  border-bottom: 1px solid rgba(65, 65, 69, 0.7);
 }
 .content {
   margin: auto;
@@ -118,7 +128,7 @@ html,
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all 0.3s;
-  background-color: #217868;
+  background-color: #289e88;
 }
 
 .auth-wrapper .form-control:focus {
