@@ -13,7 +13,6 @@ const LoadedPlant = ({ plant, updatePlant, deletePlant }) => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setUpdatePlantData({
       ...updatePlantData,
       [e.target.name]: e.target.value,

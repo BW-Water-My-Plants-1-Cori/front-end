@@ -30,12 +30,6 @@ const LoadedUser = ({ user, updateUser, deleteUser }) => {
       console.log(userInfo);
       updateUser(userInfo, user.id);
       toggle();
-    } else {
-      return (
-        <Alert color="danger">
-          Please add your old password or a new password
-        </Alert>
-      );
     }
   };
 
@@ -148,6 +142,11 @@ const LoadedUser = ({ user, updateUser, deleteUser }) => {
               />
             </FormGroup>
             <FormGroup>
+              {userInfo.password == 0 ? (
+                <p style={{ color: "red" }}>
+                  Please insert a new password or type your old password
+                </p>
+              ) : null}
               <Label for="password">Password</Label>
               <Input
                 type="password"

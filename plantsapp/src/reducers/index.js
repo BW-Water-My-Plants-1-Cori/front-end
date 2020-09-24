@@ -44,7 +44,6 @@ export const reducer = (state = initialState, action) => {
     case POST_SIGNUP_SUCCESS:
     case POST_LOGIN_SUCCESS:
     case DELETE_PLANT_SUCCESS:
-    case UPDATE_USER_SUCCESS:
     case UPDATE_PLANTWATER_SUCCESS:
       return {
         ...state,
@@ -52,6 +51,14 @@ export const reducer = (state = initialState, action) => {
         isFetching: false,
         user: action.payload.user,
         plants: action.payload.user.plants,
+      };
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isFetching: false,
+        user: action.payload,
+        plants: action.payload.plants,
       };
     case POST_PLANT_SUCCESS:
       return {
@@ -102,14 +109,19 @@ export const reducer = (state = initialState, action) => {
     case POST_PLANT_FAILURE:
     case FETCH_PLANTID_FAILURE:
     case FETCH_USERID_FAILURE:
-    case UPDATE_PLANT_FAILURE:
     case DELETE_PLANT_FAILURE:
-    case UPDATE_USER_FAILURE:
     case DELETE_USER_FAILURE:
     case UPDATE_PLANTWATER_FAILURE:
       return {
         ...state,
-        error: action.payload.response.data.message,
+        error: action.payload,
+        isFetching: false,
+      };
+    case UPDATE_USER_FAILURE:
+    case UPDATE_PLANT_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
         isFetching: false,
       };
     default:

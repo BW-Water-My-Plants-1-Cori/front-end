@@ -96,18 +96,22 @@ export const updatePlant = (plantData, id) => (dispatch) => {
     });
 };
 
-export const UPDATE_PLANTWATER_SUCCESS = "UPDATE_PLANT_SUCCESS";
-export const UPDATE_PLANTWATER_FAILURE = "UPDATE_PLANT_FAILURE";
+export const UPDATE_PLANTWATER_SUCCESS = "UPDATE_PLANTWATER_SUCCESS";
+export const UPDATE_PLANTWATER_FAILURE = "UPDATE_PLANTWATER_FAILURE";
 
 export const updatePlantWater = (id) => (dispatch) => {
   dispatch({ type: IS_FETCHING });
   axiosWithAuth()
     .put(`plants/${id}/water`)
     .then((res) => {
-      dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data, plantID: id });
+      dispatch({
+        type: UPDATE_PLANTWATER_SUCCESS,
+        payload: res.data,
+        plantID: id,
+      });
     })
     .catch((err) => {
-      dispatch({ type: UPDATE_PLANT_FAILURE, payload: err });
+      dispatch({ type: UPDATE_PLANTWATER_FAILURE, payload: err });
     });
 };
 
