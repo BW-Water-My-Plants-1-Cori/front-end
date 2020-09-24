@@ -18,8 +18,7 @@ const AddPlant = ({ addPlant, userID }) => {
     plant_name: "Rose",
     description: "its a rose",
     date_last_watered: "09/20/2020 12:00 PM",
-    increment: 20,
-    next_watering: "09/20/2020 4:00 PM",
+    increment: 10,
     species: "rose",
     plant_url:
       "https://www.gardeningknowhow.com/wp-content/uploads/2019/11/red-rose.jpg",
@@ -141,16 +140,7 @@ const AddPlant = ({ addPlant, userID }) => {
                 }}
               />
             </FormGroup>
-            <FormGroup>
-              <Label for="plan next watering">Next Watering</Label>
-              <Input
-                type="date"
-                name="next_watering"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-              />
-            </FormGroup>
+
             <FormGroup>
               <Label for="imageURL">Plant Image URL</Label>
               <Input

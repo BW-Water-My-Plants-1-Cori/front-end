@@ -19,6 +19,7 @@ import {
   deletePlant,
   updateUser,
   deleteUser,
+  updatePlantWater,
 } from "./actions";
 // Utils
 import PrivateRoute from "./utils/PrivateRoute";
@@ -71,6 +72,7 @@ function App(props) {
                 userXP={props.user.experience}
                 plants={props.plants}
                 getPlantByID={props.getPlantByID}
+                updatePlantWater={props.updatePlantWater}
               />
               <Route path="/login">
                 <Login
@@ -121,4 +123,5 @@ export default connect(mapStateToProps, {
   deletePlant,
   updateUser,
   deleteUser,
+  updatePlantWater,
 })(App);

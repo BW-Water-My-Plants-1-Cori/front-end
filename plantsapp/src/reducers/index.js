@@ -18,6 +18,8 @@ import {
   UPDATE_USER_FAILURE,
   DELETE_USER_SUCCESS,
   DELETE_USER_FAILURE,
+  UPDATE_PLANTWATER_SUCCESS,
+  UPDATE_PLANTWATER_FAILURE,
 } from "../actions";
 
 export const initialState = {
@@ -43,6 +45,7 @@ export const reducer = (state = initialState, action) => {
     case POST_LOGIN_SUCCESS:
     case DELETE_PLANT_SUCCESS:
     case UPDATE_USER_SUCCESS:
+    case UPDATE_PLANTWATER_SUCCESS:
       return {
         ...state,
         error: "",
@@ -103,6 +106,7 @@ export const reducer = (state = initialState, action) => {
     case DELETE_PLANT_FAILURE:
     case UPDATE_USER_FAILURE:
     case DELETE_USER_FAILURE:
+    case UPDATE_PLANTWATER_FAILURE:
       return {
         ...state,
         error: action.payload.response.data.message,

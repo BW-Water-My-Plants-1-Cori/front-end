@@ -96,6 +96,21 @@ export const updatePlant = (plantData, id) => (dispatch) => {
     });
 };
 
+export const UPDATE_PLANTWATER_SUCCESS = "UPDATE_PLANT_SUCCESS";
+export const UPDATE_PLANTWATER_FAILURE = "UPDATE_PLANT_FAILURE";
+
+export const updatePlantWater = (id) => (dispatch) => {
+  dispatch({ type: IS_FETCHING });
+  axiosWithAuth()
+    .put(`plants/${id}/water`)
+    .then((res) => {
+      dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data, plantID: id });
+    })
+    .catch((err) => {
+      dispatch({ type: UPDATE_PLANT_FAILURE, payload: err });
+    });
+};
+
 export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 
@@ -155,6 +170,7 @@ users/:id/plants -> returns all users plants
 UPDATE
 /plants/:id
 /users/:id
+/plants/id/water
 DELETE
 /plants/:id
 /users/:id

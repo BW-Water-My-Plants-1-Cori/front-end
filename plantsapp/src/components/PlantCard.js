@@ -12,7 +12,7 @@ import {
   CardFooter,
 } from "reactstrap";
 
-const PlantCard = ({ plant, getPlantByID }) => {
+const PlantCard = ({ plant, getPlantByID, updatePlantWater }) => {
   // Code
 
   return (
@@ -44,7 +44,13 @@ const PlantCard = ({ plant, getPlantByID }) => {
           </span>
         </CardText>
         <CardFooter>
-          <Button color="primary" id="water-button">
+          <Button
+            color="primary"
+            id="water-button"
+            onClick={() => {
+              updatePlantWater(plant.id);
+            }}
+          >
             Water
           </Button>
         </CardFooter>
