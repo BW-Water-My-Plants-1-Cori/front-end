@@ -2,13 +2,12 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { Spinner, UncontrolledAlert } from "reactstrap";
 // Components
-import Plants from "./components/Plants";
+import Home from "./components/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import AddPlant from "./components/AddPlant";
 import LoadedPlant from "./components/LoadedPlant";
 import LoadedUser from "./components/LoadedUser";
-import ExperienceBar from "./components/ExperienceBar";
 // Redux
 import { connect } from "react-redux";
 import {
@@ -21,7 +20,8 @@ import {
   updateUser,
   deleteUser,
 } from "./actions";
-
+// Utils
+import PrivateRoute from "./utils/PrivateRoute";
 function App(props) {
   return (
     <div className="App">
@@ -63,16 +63,15 @@ function App(props) {
           //Shows Loading in the content field if is fetching is true
           !props.isFetching ? (
             <Switch>
-              <Route exact path="/">
-                <ExperienceBar
-                  userLevel={props.user.level}
-                  userXP={props.user.experience}
-                />
-                <Plants
-                  plants={props.plants}
-                  getPlantByID={props.getPlantByID}
-                />
-              </Route>
+              <PrivateRoute
+                exact
+                path="/"
+                component={Home}
+                userLevel={props.user.level}
+                userXP={props.user.experience}
+                plants={props.plants}
+                getPlantByID={props.getPlantByID}
+              />
               <Route path="/login">
                 <Login
                   requestLogin={props.requestLogin}
