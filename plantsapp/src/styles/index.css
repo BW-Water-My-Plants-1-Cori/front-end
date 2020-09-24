@@ -29,7 +29,10 @@ ul li a {
 }
 
 body {
-  background-color: #8fbcb3;
+  background: rgba(143, 188, 179, 0.8);
+  background-image: url("https://pngimg.com/uploads/rain/rain_PNG13453.png");
+  background-repeat: no-repeat, repeat;
+
   min-height: 100vh;
   display: flex;
   font-weight: 400;
