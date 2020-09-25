@@ -17,6 +17,7 @@
 .card-subtitle span {
   display: flex;
   justify-content: flex-start;
+  margin: 1rem;
 }
 .card-title {
   display: flex;
