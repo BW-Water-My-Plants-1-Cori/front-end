@@ -49,6 +49,7 @@ const PlantCard = ({ plant, getPlantByID, updatePlantWater }) => {
           <span>
             Description: {plant.desription} <br />
             Species: {plant.species} <br />
+            Increment: {plant.increment} days <br />
           </span>
         </CardText>
         <CardFooter>
