@@ -10,6 +10,19 @@
 .plant-card {
   margin: 0.5rem;
 }
+.card-subtitle {
+  display: flex;
+  flex-direction: column;
+}
+.card-subtitle span {
+  display: flex;
+  justify-content: flex-start;
+}
+.card-title {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #217868;
+}
 .edit-header {
   margin-top: 2rem;
   display: flex;
@@ -19,7 +32,7 @@
   display: flex;
   justify-content: space-between;
 }
-#water-button {
+.water-button {
   width: 100%;
 }
 .card-body-wrapper {
@@ -45,4 +58,3 @@
   margin-right: 0.2rem;
   margin-left: 0.2rem;
 }
-/*229*/

@@ -114,7 +114,7 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_PLANTWATER_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload.response.data.message,
         isFetching: false,
       };
     case UPDATE_USER_FAILURE:

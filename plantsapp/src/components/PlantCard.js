@@ -20,8 +20,17 @@ const PlantCard = ({ plant, getPlantByID, updatePlantWater }) => {
       <Card body inverse color="info">
         <div className="card-body-wrapper">
           <CardBody>
-            <CardTitle>{plant.plant_name}</CardTitle>
-            <CardSubtitle>Next Water Date: {plant.next_watering}</CardSubtitle>
+            <CardTitle>
+              <h3>{plant.plant_name}</h3>
+            </CardTitle>
+            <CardSubtitle>
+              <span>
+                <p>Last Water Date: {plant.date_last_watered}</p>
+              </span>
+              <span>
+                <p>Next Water Date: {plant.next_watering}</p>
+              </span>
+            </CardSubtitle>
           </CardBody>
           <Link to={`/plants/${plant.id}`}>
             <Button
@@ -40,13 +49,12 @@ const PlantCard = ({ plant, getPlantByID, updatePlantWater }) => {
           <span>
             Description: {plant.desription} <br />
             Species: {plant.species} <br />
-            Date Created: {plant.date_created}
           </span>
         </CardText>
         <CardFooter>
           <Button
             color="primary"
-            id="water-button"
+            className="water-button"
             onClick={() => {
               updatePlantWater(plant.id);
             }}
